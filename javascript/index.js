@@ -133,9 +133,46 @@ Promise.all([prom1, prom2, prom3, prom4, prom5, prom6, prom7, prom8, prom9])
   document.querySelector("#brusselsSproutsImg").removeAttribute("hidden");
 })
 
-  
+// Another option: passing a value to the .then and doing the forEach with it.
+/*
+Promise.all([prom1, prom2, prom3, prom4, prom5, prom6, prom7, prom8, prom9])
+.then((values)=>{
+  values.forEach((elem)=>{
+    document.querySelector('#brusselsSprouts').innerHTML += `<li>${elem}</li>`
+    
+  })
+  document.querySelector('#brusselsSprouts').innerHTML += `<li>${prom9}</li>`
+    document.querySelector("#brusselsSproutsImg").removeAttribute("hidden");
+})
+*/
 
-
+// Bonus 2
+// Using Promise.all() with async/await syntax:
+/*
+const pr0 = obtainInstruction('broccoli', 0);
+const pr1 = obtainInstruction('broccoli', 1);
+const pr2 = obtainInstruction('broccoli', 2);
+const pr3 = obtainInstruction('broccoli', 3);
+const pr4 = obtainInstruction('broccoli', 4);
+const pr5 = obtainInstruction('broccoli', 5);
+const pr6 = obtainInstruction('broccoli', 6);
+async function makeBrusselSprouts() {
+  try {
+    const values = await Promise.all([pr0, pr1, pr2, pr3, pr4, pr5, pr6])
+    
+    values.forEach((instruction) => {
+      document.querySelector("#brusselsSprouts").innerHTML += `<li>${instruction}</li>`;
+    })
+    
+    document.querySelector("#brusselsSprouts").innerHTML += `<li>Brussels sprouts are ready!</li>`;
+    document.querySelector("#brusselsSproutsImg").removeAttribute("hidden");  
+    
+  } catch (error) {
+    console.log(err)
+  }    
+}
+makeBrusselSprouts();
+*/
 
 
 
